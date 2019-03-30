@@ -8,10 +8,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid >
+    <Grid Margin="0,50,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>   
         <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
