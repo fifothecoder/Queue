@@ -24,9 +24,19 @@ namespace Queue
     /// </summary>
     public sealed partial class DoctorView : Page
     {
+
+        private string _doctorID;
+
         public DoctorView()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            _doctorID = e.Parameter.ToString();
         }
     }
 }
