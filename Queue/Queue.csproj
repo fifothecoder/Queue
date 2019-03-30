@@ -119,7 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Patient.cs" />
+    <Compile Include="Classes\Appointment.cs" />
+    <Compile Include="Classes\DoctorData.cs" />
+    <Compile Include="Classes\PatientData.cs" />
     <Compile Include="Classes\StaticExtensions.cs" />
     <Compile Include="Views\DoctorView.xaml.cs">
       <DependentUpon>DoctorView.xaml</DependentUpon>
