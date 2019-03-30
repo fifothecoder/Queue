@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Security;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,9 +27,36 @@ namespace Queue
             this.InitializeComponent();
         }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string id = DocIDBox.Text;
+            string encryptedPass = GetEncryptedPassword();
+
+            if (!StaticExtensions.ValidateDoctorID(id)) StaticExtensions.ShowMessageBox("Invalid Doctor ID! (Usage is 'NameSurnameID')", "Invalid credentials");
+            else if(!ValidCredentials(id, encryptedPass)) StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");
+            else {
+                //If login is successful
+                this.Frame.Navigate(typeof(DoctorView), id);
+            }
+
+
+        }
+
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }
+
+        private string GetEncryptedPassword() 
+        {
+            //TODO:CREATE SOME ENCRYPTION
+            return DocPassword.Password;
+        }
+
+        private bool ValidCredentials(string id, string pass)
+        {
+            return true;
+        }
+       
     }
 }
