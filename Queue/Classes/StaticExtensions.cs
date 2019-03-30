@@ -17,6 +17,21 @@ namespace Queue
             await dialog.ShowAsync();
         }
 
+        public static bool ValidateDoctorID(string name)
+        {
+            if (name.Length < 8) return false;
+
+            string namePart = name.Substring(0, name.Length - 4);
+            string IDPart = name.Substring(name.Length - 4);
+
+
+
+            foreach (char c in namePart) if (!char.IsLetter(c)) return false;
+            foreach (char c in IDPart) if (!char.IsNumber(c)) return false;
+
+            return true;
+        }
+
         public static bool ValidateName(string name)
         {
             if (name.Length < 2) return false;

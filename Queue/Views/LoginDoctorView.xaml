@@ -24,12 +24,12 @@
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE187;" FontSize="48" Margin="30,0,0,0"/>
                 <TextBlock Text="Login" FontSize="48" RenderTransformOrigin="0.5,0.5" Margin="15,0,0,0"/>
             </StackPanel>
-            <TextBlock x:Name="DocIDBlock" Text="Doctor ID: " Grid.Column="0" Grid.Row="1" Margin="-20,0,0,15"/>
-            <TextBox x:Name="DocIDBox" Grid.Column="1" Grid.Row="1" Margin="0,0,-50,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <TextBlock x:Name="DocPasswordBlock" Text="Password: " Grid.Column="0" Grid.Row="2" Margin="-20,0,0,15"/>
-            <PasswordBox x:Name="DocPassword" Grid.Column="1" Grid.Row="2" Margin="0,0,-50,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <Button x:Name="LoginButton" Content="Login" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" Margin="15,0,0,0"/>
-            <Button x:Name="BackButton" Content="Back" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="20,0,0,0" VerticalAlignment="Bottom" Click="BackButton_Click"/>
+            <TextBlock x:Name="DocIDBlock" Text="Doctor ID: " Grid.Column="0" Grid.Row="1" Margin="0,0,0,15"/>
+            <TextBox x:Name="DocIDBox" Grid.Column="1" Grid.Row="1" Margin="0,0,-70,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBlock x:Name="DocPasswordBlock" Text="Password: " Grid.Column="0" Grid.Row="2" Margin="0,0,0,15"/>
+            <PasswordBox x:Name="DocPassword" Grid.Column="1" Grid.Row="2" Margin="0,0,-70,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button x:Name="LoginButton" Content="Login" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+            <Button x:Name="BackButton" Content="Back" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Click="BackButton_Click"/>
         </Grid>
     </Grid>
 </Page>
