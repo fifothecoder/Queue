@@ -33,7 +33,7 @@ namespace Queue
             string encryptedPass = GetEncryptedPassword();
 
             if (!StaticExtensions.ValidateDoctorID(id)) StaticExtensions.ShowMessageBox("Invalid Doctor ID! (Usage is 'NameSurnameID')", "Invalid credentials");
-            else if(!ValidCredentials(id, encryptedPass)) StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");
+            else if(!ValidateCredentials(id, encryptedPass)) StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");
             else {
                 //If login is successful
                 this.Frame.Navigate(typeof(DoctorView), id);
@@ -53,7 +53,7 @@ namespace Queue
             return DocPassword.Password;
         }
 
-        private bool ValidCredentials(string id, string pass)
+        private bool ValidateCredentials(string id, string pass)
         {
             return true;
         }

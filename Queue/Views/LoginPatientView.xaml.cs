@@ -27,9 +27,37 @@ namespace Queue
             this.InitializeComponent();
         }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            string birthNum = PatBirthNoBox.Text;
+            string encryptedPass = GetEncryptedPassword();
+
+            if (!StaticExtensions.ValidateBN(birthNum)) StaticExtensions.ShowMessageBox("Invalid Birth Date! (Usage is 'XXXXXX/XXXX')", "Invalid credentials");
+            else if (!ValidateCredentials(birthNum, encryptedPass)) StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");
+            else
+            {
+                //If login is successful
+                this.Frame.Navigate(typeof(PatientView), birthNum);
+            }
+
+        }
+
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }
+
+        private string GetEncryptedPassword()
+        {
+            //TODO:CREATE SOME ENCRYPTION
+            return PatPassword.Password;
+        }
+
+        private bool ValidateCredentials(string id, string pass)
+        {
+            return true;
+        }
+
     }
 }
