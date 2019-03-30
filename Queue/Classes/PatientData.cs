@@ -31,9 +31,9 @@ namespace Queue.Classes
             _birthNum = birthNum;
             _ins = ins;
 
-            if (!ValidateName()) throw new ArgumentException("Invalid name!");
-            if (!ValidateSurname()) throw new ArgumentException("Invalid surname!");
-            if (!ValidateBN()) throw new ArgumentException("Invalid birth number!");
+            if (!StaticExtensions.ValidateName(_name)) throw new ArgumentException("Invalid name!");
+            if (!StaticExtensions.ValidateSurname(_sur)) throw new ArgumentException("Invalid surname!");
+            if (!StaticExtensions.ValidateBN(_birthNum)) throw new ArgumentException("Invalid birth number!");
         }
 
         public string GetPatientName()
@@ -46,29 +46,7 @@ namespace Queue.Classes
             return _ins.ToString();
         }
 
-        private bool ValidateName()
-        {
-            if (_name.Length < 2) return false;
-            foreach (char c in _name)if (!char.IsLetter(c)) return false;
-            return true;
-        }
-
-        private bool ValidateBN()
-        {
-            if (_birthNum.Length != 11) return false;
-            int i = 0;
-            for (; i < 6; i++) if (char.IsDigit(_birthNum[i])) return false;
-            i++;
-            for (; i < _birthNum.Length; i++) if (char.IsDigit(_birthNum[i])) return false;
-            return true;
-        }
-
-        private bool ValidateSurname()
-        {
-            if (_sur.Length < 2) return false;
-            foreach (char c in _sur) if (!char.IsLetter(c)) return false;
-            return true;
-        }
+       
 
     }
 }
