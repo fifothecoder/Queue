@@ -22,9 +22,11 @@ namespace Queue
     /// </summary>
     public sealed partial class PatientView : Page
     {
+
         public PatientView()
         {
             this.InitializeComponent();
+            //listView.Items.Add("XXX");
         }
     }
 }
