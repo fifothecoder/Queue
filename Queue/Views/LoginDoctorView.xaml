@@ -9,10 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -20,16 +21,18 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,15">
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE187;" FontSize="48"/>
                 <TextBlock Text="Login" FontSize="48"/>
             </StackPanel>
-            <TextBlock x:Name="DocIDBlock" Text="Doctor ID: " Grid.Column="0" Grid.Row="1" Margin="0,0,0,15"/>
-            <TextBox x:Name="DocIDBox" Grid.Column="1" Grid.Row="1" Margin="0,0,-105,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <TextBlock x:Name="DocPasswordBlock" Text="Password: " Grid.Column="0" Grid.Row="2" Margin="0,0,0,15"/>
-            <PasswordBox x:Name="DocPassword" Grid.Column="1" Grid.Row="2" Margin="0,0,-105,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <Button x:Name="LoginButton" Content="Login" Grid.Row="3" HorizontalAlignment="Center" Margin="0,0,0,-0.6" VerticalAlignment="Bottom" Click="LoginButton_Click"/>
-            <Button x:Name="BackButton" Content="Back" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Click="BackButton_Click" RenderTransformOrigin="0.5,0.506"/>
+            <TextBlock x:Name="DocIDBlock" Text="Doctor ID: " Grid.Column="0" Grid.Row="1" Margin="0,0,0,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBox x:Name="DocIDBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250"/>
+            <TextBlock x:Name="DocPasswordBlock" Text="Password: " Grid.Column="0" Grid.Row="2" Margin="0,0,0,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <PasswordBox x:Name="DocPassword" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250"/>
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+            <Button x:Name="LoginButton" Content="Login"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="LoginButton_Click" Margin="0,0,30,0"/>
+            <Button x:Name="BackButton" Content="Back"  HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click" RenderTransformOrigin="0.5,0.506" Grid.ColumnSpan="2"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
