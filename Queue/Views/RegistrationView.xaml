@@ -25,7 +25,7 @@
             <TextBlock x:Name="NameBlock" Text="Name:"/>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1">
-            <TextBox x:Name="NameBox" Text="enter Name"/>
+            <TextBox x:Name="NameBox" />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
             <TextBlock x:Name="SurnameBlock" Text="Surname:"/>
@@ -37,7 +37,7 @@
             <TextBlock x:Name="BirthBlock" Text="Birth Number:"/>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
-            <TextBox x:Name="BirthBox" Text="enter Name"/>
+            <TextBox x:Name="BirthBox"/>
         </Grid>
         <Grid Grid.Row="3" Grid.Column="0">
             <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
