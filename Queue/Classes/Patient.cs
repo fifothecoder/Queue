@@ -28,6 +28,8 @@ namespace Queue.Classes
             _name = nam;
             _sur = sur;
             _ins = ins;
+
+            if (!ValidateName() || !ValidateSurname()) throw new ArgumentException();
         }
 
         public string GetPatientName()
@@ -42,11 +44,15 @@ namespace Queue.Classes
 
         private bool ValidateName()
         {
+            if (_name.Length < 2) return false;
+            foreach (char c in _name)if (!char.IsLetter(c)) return false;
             return true;
         }
 
         private bool ValidateSurname()
         {
+            if (_sur.Length < 2) return false;
+            foreach (char c in _sur) if (!char.IsLetter(c)) return false;
             return true;
         }
 

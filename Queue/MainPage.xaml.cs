@@ -28,7 +28,6 @@ namespace Queue
         public MainPage()
         {
             this.InitializeComponent();
-
         }
     }
 }
