@@ -25,7 +25,7 @@
             <TextBlock x:Name="NameBlock" Text="Name:"/>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1">
-            <TextBox x:Name="NameBox" Text="enter Name"/>
+            <TextBox x:Name="NameBox" />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
             <TextBlock x:Name="SurnameBlock" Text="Surname:"/>
@@ -37,13 +37,13 @@
             <TextBlock x:Name="BirthBlock" Text="Birth Number:"/>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
-            <TextBox x:Name="BirthBox" Text="enter Name"/>
+            <TextBox x:Name="BirthBox"/>
         </Grid>
         <Grid Grid.Row="3" Grid.Column="0">
             <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
         </Grid>
         <Grid Grid.Row="3" Grid.Column="1">
-            <ComboBox PlaceholderText="Choose Your Insurance Company" Width="200">
+            <ComboBox x:Name="InsuranceComboBox" PlaceholderText="Choose Your Insurance Company" Width="200">
                 <x:String>VŠZP</x:String>
                 <x:String>Union</x:String>
                 <x:String>Dôvera</x:String>
@@ -51,13 +51,13 @@
             </ComboBox>
         </Grid>
         <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
-            <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Privacy"/>
+            <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Service" IsChecked="False"/>
         </Grid>
         <Grid Grid.Row="5" Grid.Column="0">
-            <Button x:Name="RegisterButton" Content="Register"/>
+            <Button x:Name="RegisterButton" Content="Register" Click="RegisterButton_Click"/>
         </Grid>
         <Grid Grid.Row="5" Grid.Column="1">
-            <Button x:Name="CancelButton" Content="Cancel"/>
+            <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="CancelButton_Click"/>
         </Grid>
     </Grid>
     
