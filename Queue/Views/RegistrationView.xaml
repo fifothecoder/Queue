@@ -8,63 +8,79 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Margin="0,100,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="500"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,50">
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE1E2;" FontSize="48"/>
-            <TextBlock x:Name="Reg_Headline" HorizontalAlignment="Left" Text="Registration" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Width="501" Margin="15,0,0,0" />
-        </StackPanel>
-        <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,0,15">
-            <TextBlock x:Name="NameBlock" Text="Name:"/>
+        <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="500"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,50" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE1E2;" FontSize="48"/>
+                <TextBlock x:Name="Reg_Headline" HorizontalAlignment="Left" Text="Registration" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Width="auto" Margin="15,0,0,0" TextAlignment="Center" />
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,0,15">
+                <TextBlock x:Name="NameBlock" Text="Name:"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,0,15">
+                <TextBox x:Name="NameBox"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="0" Margin="0,0,0,15">
+                <TextBlock x:Name="SurnameBlock" Text="Surname:"/>
+            </Grid>
+            <Grid Grid.Row="2"  Grid.Column="1" Margin="0,0,0,15">
+                <TextBox x:Name="SurnameBox" />
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="0" Margin="0,0,0,15">
+                <TextBlock x:Name="BirthBlock" Text="Birth Number:"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="1" Margin="0,0,0,15">
+                <TextBox x:Name="BirthBox"/>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="0" Margin="0,0,0,15">
+                <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="1" Margin="0,0,0,15">
+                <ComboBox x:Name="InsuranceComboBox" PlaceholderText="Choose Your Insurance Company" Width="200">
+                    <x:String>VŠZP</x:String>
+                    <x:String>Union</x:String>
+                    <x:String>Dôvera</x:String>
+                    <x:String>None</x:String>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+                <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Privacy"/>
+            </Grid>
+
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,0,15">
-            <TextBox x:Name="NameBox"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Button x:Name="RegisterButton" Content="Register" Click="RegisterButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,20,0,0"/>
+            </Grid>
+
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="0" Margin="0,0,0,15">
-            <TextBlock x:Name="SurnameBlock" Text="Surname:"/>
-        </Grid>
-        <Grid Grid.Row="2"  Grid.Column="1" Margin="0,0,0,15">
-            <TextBox x:Name="SurnameBox" />
-        </Grid>
-        <Grid Grid.Row="3" Grid.Column="0" Margin="0,0,0,15">
-            <TextBlock x:Name="BirthBlock" Text="Birth Number:"/>
-        </Grid>
-        <Grid Grid.Row="3" Grid.Column="1" Margin="0,0,0,15">
-            <TextBox x:Name="BirthBox"/>
-        </Grid>
-        <Grid Grid.Row="4" Grid.Column="0" Margin="0,0,0,15">
-            <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
-        </Grid>
-        <Grid Grid.Row="4" Grid.Column="1" Margin="0,0,0,15">
-            <ComboBox x:Name="InsuranceComboBox" PlaceholderText="Choose Your Insurance Company" Width="200">
-                <x:String>VŠZP</x:String>
-                <x:String>Union</x:String>
-                <x:String>Dôvera</x:String>
-                <x:String>None</x:String>
-            </ComboBox>
-        </Grid>
-        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
-            <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Privacy"/>
-        </Grid>
-        <Grid Grid.Row="6" Grid.Column="0" HorizontalAlignment="Stretch" Margin="-5,88,5,-88" VerticalAlignment="Stretch">
-            <Button x:Name="RegisterButton" Content="Register" Click="RegisterButton_Click"/>
-        </Grid>
-        <Grid Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,88,0,-88" VerticalAlignment="Stretch">
-            <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click"/>
-        </Grid>
-        
+
     </Grid>
 
 </Page>
