@@ -11,13 +11,17 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="Menu" Grid.Column="0">
-            <NavigationView x:Name="UWPName">
-                
-            </NavigationView>
+        <Grid Grid.Column="0">
+            <TextBox x:Name="Doctor_SignUp" Text="Sign as a Doctor" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-
+        <Grid Grid.Column="1">
+            <TextBox x:Name="Patient_SignUp" Text="Sign as a Patient" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="2">
+            <TextBox x:Name="Registraton" Text="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+        </Grid>
     </Grid>
 </Page>
