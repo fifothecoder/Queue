@@ -121,7 +121,7 @@
     </Compile>
     <Compile Include="Classes\Appointment.cs" />
     <Compile Include="Classes\DoctorData.cs" />
-    <Compile Include="Classes\PatientData.cs" />
+    <Compile Include="PatientData.cs" />
     <Compile Include="Classes\StaticExtensions.cs" />
     <Compile Include="Views\DoctorView.xaml.cs">
       <DependentUpon>DoctorView.xaml</DependentUpon>
