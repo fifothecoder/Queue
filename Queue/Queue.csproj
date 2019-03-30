@@ -121,6 +121,9 @@
     </Compile>
     <Compile Include="Classes\Appointment.cs" />
     <Compile Include="Classes\DoctorData.cs" />
+    <Compile Include="Views\PatientViewTest.xaml.cs">
+      <DependentUpon>PatientViewTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPatientView.xaml.cs">
       <DependentUpon>LoginPatientView.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\PatientViewTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginPatientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
