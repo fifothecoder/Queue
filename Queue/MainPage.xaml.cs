@@ -39,7 +39,7 @@ namespace Queue
 
         private void Registraton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(RegistrationView));
         }
 
         private void Patient_SignIn_Click(object sender, RoutedEventArgs e)
