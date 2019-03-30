@@ -27,6 +27,38 @@ namespace Queue
             this.InitializeComponent();
         }
 
-        
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Validate info
+
+            if (!StaticExtensions.ValidateName(NameBox.Text.Trim()))
+            {
+                StaticExtensions.ShowMessageBox("Invalid name! (Length must be above 2 characters)", "Invalid Name");
+            } else if (!StaticExtensions.ValidateSurname(SurnameBox.Text.Trim()))
+            {
+                StaticExtensions.ShowMessageBox("Invalid surname! (Length must be above 2 characters)", "Invalid Surname");
+            } else if (!StaticExtensions.ValidateBN(BirthBox.Text.Trim()))
+            {
+                StaticExtensions.ShowMessageBox("Invalid birth date! (Must have format 'xxxxxx/xxxx')", "Invalid Birth Date");
+            } else if (InsuranceComboBox.SelectedItem == null) {
+                StaticExtensions.ShowMessageBox("You need to choose the insurance company! (Choose none if you are not insured)", "Invalid Insurance Company");
+            }
+            else if (TermsCheck.IsChecked != true)
+            {
+                StaticExtensions.ShowMessageBox("You need to agree with the Terms of Service!", "Invalid Terms of Service");
+            } else
+            {
+                //Register to database
+                StaticExtensions.ShowMessageBox("Registering to database..", "Success!");
+            }
+
+
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }

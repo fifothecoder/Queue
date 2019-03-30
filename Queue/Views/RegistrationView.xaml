@@ -8,8 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -18,62 +21,42 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="500"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="500"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Row="0" Grid.Column="0">
-                    <TextBlock x:Name="NameBlock" Text="Name:"/>
-                </Grid>
-                <Grid Grid.Row="0" Grid.Column="1">
-                    <TextBox x:Name="NameBox"/>
-                </Grid>
-                <Grid Grid.Row="1" Grid.Column="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="19*"/>
-                        <ColumnDefinition Width="131*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="SurnameBlock" Text="Surname:" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
-                </Grid>
-                <Grid Grid.Row="1"  Grid.Column="1">
-                    <TextBox x:Name="SurnameBox" />
-                </Grid>
-                <Grid Grid.Row="2" Grid.Column="0">
-                    <TextBlock x:Name="BirthBlock" Text="Birth Number:"/>
-                </Grid>
-                <Grid Grid.Row="2" Grid.Column="1">
-                    <TextBox x:Name="BirthBox"/>
-                </Grid>
-                <Grid Grid.Row="3" Grid.Column="0">
-                    <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
-                </Grid>
-                <Grid Grid.Row="3" Grid.Column="1">
-                    <ComboBox PlaceholderText="Choose Your Insurance Company" Width="200">
-                        <x:String>VŠZP</x:String>
-                        <x:String>Union</x:String>
-                        <x:String>Dôvera</x:String>
-                        <x:String>None</x:String>
-                    </ComboBox>
-                </Grid>
-            </Grid>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <TextBlock x:Name="NameBlock" Text="Name:"/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,16,0,-16">
+        <Grid Grid.Row="0" Grid.Column="1">
+            <TextBox x:Name="NameBox" Text="enter Name"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <TextBlock x:Name="SurnameBlock" Text="Surname:"/>
+        </Grid>
+        <Grid Grid.Row="1"  Grid.Column="1">
+            <TextBox x:Name="SurnameBox" />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <TextBlock x:Name="BirthBlock" Text="Birth Number:"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <TextBox x:Name="BirthBox" Text="enter Name"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0">
+            <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <ComboBox PlaceholderText="Choose Your Insurance Company" Width="200">
+                <x:String>VŠZP</x:String>
+                <x:String>Union</x:String>
+                <x:String>Dôvera</x:String>
+                <x:String>None</x:String>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
             <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Privacy"/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,66,0,-66" VerticalAlignment="Stretch">
+        <Grid Grid.Row="5" Grid.Column="0">
             <Button x:Name="RegisterButton" Content="Register"/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,66,0,-66" VerticalAlignment="Stretch">
+        <Grid Grid.Row="5" Grid.Column="1">
             <Button x:Name="CancelButton" Content="Cancel"/>
         </Grid>
         <TextBlock x:Name="Reg_Headline" HorizontalAlignment="Left" Margin="0,-108,0,0" Text="Registration" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Width="501" Grid.ColumnSpan="2" />
