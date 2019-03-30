@@ -28,7 +28,7 @@
             <TextBox x:Name="DocIDBox" Grid.Column="1" Grid.Row="1" Margin="0,0,-70,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             <TextBlock x:Name="DocPasswordBlock" Text="Password: " Grid.Column="0" Grid.Row="2" Margin="0,0,0,15"/>
             <PasswordBox x:Name="DocPassword" Grid.Column="1" Grid.Row="2" Margin="0,0,-70,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <Button x:Name="LoginButton" Content="Login" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+            <Button x:Name="LoginButton" Content="Login" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" Click="LoginButton_Click"/>
             <Button x:Name="BackButton" Content="Back" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Click="BackButton_Click"/>
         </Grid>
     </Grid>
