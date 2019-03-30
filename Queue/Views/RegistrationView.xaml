@@ -22,19 +22,28 @@
                 <TextBlock x:Name="NameBlock" Text="Name:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox x:Name="NameBox"/>
+                <TextBox x:Name="NameBox" Text="enter Name"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
             <Grid Grid.Column="0">
-                <TextBox x:Name="SurnameBlock" Text="Surname:"/>
+                <TextBlock x:Name="SurnameBlock" Text="Surname:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBox x:Name="SurnameBox" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+                <TextBox x:Name="SurnameBox" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid Grid.Column="0">
+                <TextBlock x:Name="BirthBlock" Text="Birth Number:"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox x:Name="BirthBox" Text="enter Name"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid Grid.Column="0">
+                <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
             </Grid>
         </Grid>
     </Grid>
