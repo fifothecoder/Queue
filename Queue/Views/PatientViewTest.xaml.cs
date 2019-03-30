@@ -22,9 +22,18 @@ namespace Queue
     /// </summary>
     public sealed partial class PatientViewTest : Page
     {
+        private string _birthNum;
+
         public PatientViewTest()
         {
             this.InitializeComponent();
+            //listView.Items.Add("XXX");
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            _birthNum = e.Parameter.ToString();
         }
     }
 }

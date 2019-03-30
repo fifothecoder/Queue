@@ -38,7 +38,7 @@ namespace Queue
             else
             {
                 //If login is successful
-                this.Frame.Navigate(typeof(PatientView), birthNum);
+                this.Frame.Navigate(typeof(PatientViewTest), birthNum);
             }
 
         }
