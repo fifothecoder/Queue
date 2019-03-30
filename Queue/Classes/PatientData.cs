@@ -16,7 +16,7 @@ namespace Queue.Classes
         Union = 3
     }
 
-    public class Patient
+    public class PatientData
     {
 
         private readonly string _name;
@@ -24,7 +24,7 @@ namespace Queue.Classes
         private readonly string _birthNum;      // Format : AAAAAA/BBBB
         private readonly InsuranceComp _ins;
 
-        public Patient(string nam, string sur, string birthNum, InsuranceComp ins)
+        public PatientData(string nam, string sur, string birthNum, InsuranceComp ins)
         {
             _name = nam;
             _sur = sur;
