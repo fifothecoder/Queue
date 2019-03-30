@@ -33,7 +33,7 @@ namespace Queue
 
         private void Doctor_SignIn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(DoctorView));
+            this.Frame.Navigate(typeof(Login_Doctor));
             
         }
 
@@ -44,7 +44,7 @@ namespace Queue
 
         private void Patient_SignIn_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(LoginPatientView));
         }
     }
 }
