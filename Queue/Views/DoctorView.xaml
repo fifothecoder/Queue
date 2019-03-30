@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Height="600" Width="1024" Background="White">
-
     
     
     <Grid>
@@ -34,7 +33,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="0,40,0,40" Height="150">
+        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="0,40,0,40" Height="150" x:Name="Chart">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="150"/>
@@ -58,6 +57,36 @@
             <TextBlock x:Name="PatientNumber" Grid.Column="2" Grid.Row="0" Text="Birth Number" TextAlignment="Center"/>
             <TextBlock x:Name="Insurance" Grid.Column="3" Grid.Row="0" Text="Insurance" TextAlignment="Center"/>
             <TextBlock x:Name="Time" Grid.Column="4" Grid.Row="0" Text="Time" TextAlignment="Center"/>
+            
+            <TextBlock x:Name="TB00" Grid.Column="0" Grid.Row="1" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB01" Grid.Column="0" Grid.Row="2" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB02" Grid.Column="0" Grid.Row="3" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB03" Grid.Column="0" Grid.Row="4" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB04" Grid.Column="0" Grid.Row="5" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+
+            <TextBlock x:Name="TB10" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB11" Grid.Column="1" Grid.Row="2" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB12" Grid.Column="1" Grid.Row="3" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB13" Grid.Column="1" Grid.Row="4" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB14" Grid.Column="1" Grid.Row="5" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            
+            <TextBlock x:Name="TB20" Grid.Column="2" Grid.Row="1" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB21" Grid.Column="2" Grid.Row="2" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB22" Grid.Column="2" Grid.Row="3" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB23" Grid.Column="2" Grid.Row="4" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB24" Grid.Column="2" Grid.Row="5" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+
+            <TextBlock x:Name="TB30" Grid.Column="3" Grid.Row="1" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB31" Grid.Column="3" Grid.Row="2" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB32" Grid.Column="3" Grid.Row="3" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB33" Grid.Column="3" Grid.Row="4" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB34" Grid.Column="3" Grid.Row="5" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+
+            <TextBlock x:Name="TB40" Grid.Column="4" Grid.Row="1" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB41" Grid.Column="4" Grid.Row="2" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB42" Grid.Column="4" Grid.Row="3" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB43" Grid.Column="4" Grid.Row="4" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
+            <TextBlock x:Name="TB44" Grid.Column="4" Grid.Row="5" TextAlignment="Center" Text="fuck" FocusVisualPrimaryBrush="#FFDD1A1A" Foreground="#FF060000" />
 
         </Grid>
         
