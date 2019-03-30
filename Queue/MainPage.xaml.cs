@@ -29,5 +29,20 @@ namespace Queue
         {
             this.InitializeComponent();
         }
+
+        private void Doctor_SignIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Registraton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Patient_SignIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
