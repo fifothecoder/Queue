@@ -20,9 +20,9 @@ namespace Queue
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Login_Doctor : Page
+    public sealed partial class LoginDoctorView : Page
     {
-        public Login_Doctor()
+        public LoginDoctorView()
         {
             this.InitializeComponent();
         }
@@ -39,7 +39,6 @@ namespace Queue
                 this.Frame.Navigate(typeof(DoctorView), id);
             }
 
-
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -50,7 +49,7 @@ namespace Queue
         private string GetEncryptedPassword() 
         {
             //TODO:CREATE SOME ENCRYPTION
-            return DocPassword.Password;
+            return DocPasswordBox.Password;
         }
 
         private bool ValidateCredentials(string id, string pass)
