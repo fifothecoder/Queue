@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <TextBox x:Name="Doctor_SignUp" Text="Sign as a Doctor" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE13D;" />
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE13D;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" />
         </Grid>
         <Grid Grid.Column="1">
             <TextBox x:Name="Patient_SignUp" Text="Sign as a Patient" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
