@@ -30,6 +30,9 @@ namespace Queue
             this.InitializeComponent();
             //Sem pojde kod
             // Adam
+            
+
+            //Hello this is Asdo!
         }
     }
 }
