@@ -10,19 +10,31 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Button x:Name="Doctor_SignIn" Content="Sign as a Doctor" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Doctor_SignIn_Click" />
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE13D;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" />
+        <Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button x:Name="Doctor_SignIn" Content="Sign as a Doctor" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Doctor_SignIn_Click" />
+                </Grid>
+                <Grid Grid.Column="1">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE125;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" />
+                </Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1">
             <Button x:Name="Patient_SignIn" Content="Sign as a Patient" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Patient_SignIn_Click" />
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE13D;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" />
         </Grid>
         <Grid Grid.Column="2">
             <Button x:Name="Registraton" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Registraton_Click" />
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE1E2;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" />
         </Grid>
     </Grid>
 </Page>
