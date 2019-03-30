@@ -28,9 +28,7 @@ namespace Queue
         public MainPage()
         {
             this.InitializeComponent();
-            //Sem pojde kod
-            // Adam
-            //SOME CHANGES
+
         }
     }
 }
