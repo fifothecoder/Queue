@@ -25,6 +25,8 @@ namespace Queue
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        UControl h = new UControl();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -33,6 +35,7 @@ namespace Queue
         private void Doctor_SignIn_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Doctor));
+            
         }
 
         private void Registraton_Click(object sender, RoutedEventArgs e)
