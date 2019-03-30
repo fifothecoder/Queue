@@ -33,7 +33,7 @@ namespace Queue
 
         private void Doctor_SignIn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Login_Doctor));
+            this.Frame.Navigate(typeof(LoginDoctorView));
             
         }
 
