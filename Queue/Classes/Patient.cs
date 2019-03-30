@@ -21,15 +21,19 @@ namespace Queue.Classes
 
         private readonly string _name;
         private readonly string _sur;
+        private readonly string _birthNum;      // Format : AAAAAA/BBBB
         private readonly InsuranceComp _ins;
 
-        public Patient(string nam, string sur, InsuranceComp ins)
+        public Patient(string nam, string sur, string birthNum, InsuranceComp ins)
         {
             _name = nam;
             _sur = sur;
+            _birthNum = birthNum;
             _ins = ins;
 
-            if (!ValidateName() || !ValidateSurname()) throw new ArgumentException();
+            if (!ValidateName()) throw new ArgumentException("Invalid name!");
+            if (!ValidateSurname()) throw new ArgumentException("Invalid surname!");
+            if (!ValidateBN()) throw new ArgumentException("Invalid birth number!");
         }
 
         public string GetPatientName()
@@ -46,6 +50,16 @@ namespace Queue.Classes
         {
             if (_name.Length < 2) return false;
             foreach (char c in _name)if (!char.IsLetter(c)) return false;
+            return true;
+        }
+
+        private bool ValidateBN()
+        {
+            if (_birthNum.Length != 11) return false;
+            int i = 0;
+            for (; i < 6; i++) if (char.IsDigit(_birthNum[i])) return false;
+            i++;
+            for (; i < _birthNum.Length; i++) if (char.IsDigit(_birthNum[i])) return false;
             return true;
         }
 
