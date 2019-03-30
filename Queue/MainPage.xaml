@@ -9,6 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="Menu" Grid.Column="0">
+            <NavigationView x:Name="UWPName">
+                
+            </NavigationView>
+        </Grid>
 
     </Grid>
 </Page>
