@@ -29,7 +29,7 @@ namespace Queue
         {
             this.InitializeComponent();
             //Sem pojde kod
-            // Adam
+            // Adamm
         }
     }
 }
