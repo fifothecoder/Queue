@@ -15,36 +15,24 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="Doctor_SignIn" Content="Sign as a Doctor" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Doctor_SignIn_Click" Grid.Column="1" />
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE125;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Grid.Column="0" />
-
-
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE125;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+                <Button x:Name="Doctor_SignIn" Content="Sign as a Doctor" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Doctor_SignIn_Click" />
+            </StackPanel>
         </Grid>
         <Grid Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="Patient_SignIn" Content="Sign as a Patient" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Patient_SignIn_Click" Grid.Column="1" />
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE13D;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" Grid.Column="0" />
-
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE13D;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" />
+                <Button x:Name="Patient_SignIn" Content="Sign as a Patient" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Patient_SignIn_Click" />
+            </StackPanel>
         </Grid>
         <Grid Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="Registraton" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Registraton_Click" Grid.Column="1" />
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE1E2;" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" Grid.Column="1" />
-
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE1E2;" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <Button x:Name="Registraton" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="Registraton_Click" />
+            
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

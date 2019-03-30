@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -53,10 +53,10 @@
         <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
             <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Privacy"/>
         </Grid>
-        <Grid Grid.Row="5" Grid.Column="0">
+        <Grid Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" Margin="-5,88,5,-88" VerticalAlignment="Stretch">
             <Button x:Name="RegisterButton" Content="Register" Click="RegisterButton_Click"/>
         </Grid>
-        <Grid Grid.Row="5" Grid.Column="1">
+        <Grid Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,88,0,-88" VerticalAlignment="Stretch">
             <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click"/>
         </Grid>
         <TextBlock x:Name="Reg_Headline" HorizontalAlignment="Left" Margin="0,-108,0,0" Text="Registration" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Width="501" Grid.ColumnSpan="2" />
