@@ -5,10 +5,63 @@
     xmlns:local="using:Queue"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d" Height="600" Width="1024" Background="White">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0" VerticalAlignment ="Center" HorizontalAlignment="Center" Height="auto" x:Name="Chart">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.RowSpan="4" Background="Blue"/>
+
+            <TextBlock x:Name="Date" Grid.Column="0" Grid.Row="0" Text="Date" TextAlignment="Center"/>
+            <TextBlock x:Name="Doctor" Grid.Column="0" Grid.Row="1" Text="Doctor" TextAlignment="Center"/>
+            <TextBlock x:Name="Time" Grid.Column="0" Grid.Row="2" Text="Time" TextAlignment="Center"/>
+            <TextBlock x:Name="Assign" Grid.Column="0" Grid.Row="3" Text="Assign" TextAlignment="Center"/>
+
+            <CalendarDatePicker Grid.Column="1" Grid.Row="0" x:Name="DateCombo" HorizontalAlignment="Center" Width="100"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" x:Name="DoctorCombo" HorizontalAlignment="Center" Width="100"/>
+            <ComboBox Grid.Column="1" Grid.Row="2" x:Name="TimeCombo" HorizontalAlignment="Center" Width="100"/>
+            <Button Grid.Column="1" Grid.Row="3" x:Name="AssignButton" HorizontalAlignment="Center" Width="100" Background="Black"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1" VerticalAlignment ="Center" HorizontalAlignment="Center" Height="auto">
+          
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.RowSpan="4" Background="Blue"/>
+
+            <TextBlock  Grid.Column="0" Grid.Row="0" Text="Date" TextAlignment="Center"/>
+            <TextBlock  Grid.Column="0" Grid.Row="1" Text="Doctor" TextAlignment="Center"/>
+            <TextBlock  Grid.Column="0" Grid.Row="2" Text="Time" TextAlignment="Center"/>
+
+            <CalendarDatePicker Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Width="100" x:Name="TBDate"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="100" x:Name="TBDoctor"/>
+            <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Width="100" x:Name="TBTime"/>
+        </Grid>
     </Grid>
 </Page>
