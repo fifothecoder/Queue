@@ -58,7 +58,7 @@ namespace Queue
             string doctor = Convert.ToString(DoctorCombo.SelectedItem);
             string name = patdata.GetPatientName();
             string insurancecomp = patdata.GetInsuranceCompany();
-
+             
             
         }
     }
