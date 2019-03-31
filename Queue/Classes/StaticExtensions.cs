@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Newtonsoft.Json;
 
@@ -57,14 +57,6 @@ namespace Queue
             return true;
         } 
 
-        public static DoctorData LoadDoctorFromJSON(string json)
-        {
-            string docName = "Sona1234";
-            string docSurname = "aaaaaaaaa";
-
-            return new DoctorData(docName, docSurname);
-        }
-
         public static InsuranceComp ToInsuranceComp(this string s)
         {
             switch (s.ToUpper())
@@ -74,6 +66,58 @@ namespace Queue
                 case "UNION": return InsuranceComp.Union;
                 default: return InsuranceComp.None;
             }
+        }
+
+        public static void GetAppointments(string docID, ref List<Appointment> appointments)
+        {
+            appointments.Clear();
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/doctor/appos");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                var data = JsonConvert.SerializeObject(new { DoctorID = docID });
+
+                streamWriter.Write(data);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                string json = streamReader.ReadToEnd();
+                var appos = JsonConvert.DeserializeObject<List<Appointment>>(json);
+                appos = appos.OrderBy(x => x.date_of_appo).ToList();
+                foreach (var item in appos)
+                {
+                    if (!appointments.Contains(item)) appointments.Add(item);
+                }
+            }
+        }
+
+        public static void DeleteAppointmentFromServer(Appointment appo)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/doctor/appos/remove");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                var data = JsonConvert.SerializeObject(new { appo.patient_id, appo.date_of_appo});
+
+                streamWriter.Write(data);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                if (streamReader.ReadToEnd() == "ERROR") throw new InvalidProgramException();
+            }
+
         }
     }
 }

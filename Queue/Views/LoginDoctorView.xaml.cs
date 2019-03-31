@@ -44,7 +44,11 @@ namespace Queue
                 else
                 {
                     Dictionary<string, string> pat = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
-                    DoctorData docData = new DoctorData(pat["name"], pat["surname"]);
+
+                    List<Appointment> appos = new List<Appointment>();
+                    StaticExtensions.GetAppointments(docID, ref appos);
+
+                    DoctorData docData = new DoctorData(pat["name"], pat["surname"], docID, ref appos);
 
                     this.Frame.Navigate(typeof(DoctorView), docData); //Good credentials
                 }
@@ -85,6 +89,7 @@ namespace Queue
                 return result;
             }
         }
+
 
     }
 }

@@ -8,16 +8,20 @@ namespace Queue
 {
     public class Appointment
     {
-        public DateTime DateFrom;
-        public DateTime DateTo;
-        public string DoctorName;
+        public DateTime date_of_appo;
+        public string name;
+        public string surname;
+        public string patient_id;
+        public InsuranceComp InsuranceComp;
 
 
-        public Appointment(DateTime from, DateTime to, string docName)
+        public Appointment(string patientName, string patientSurname, string patientID, InsuranceComp ins, DateTime from)
         {
-            DateFrom = from;
-            DateTo = to;
-            DoctorName = docName;
+            name = patientName;
+            surname = patientSurname;
+            patient_id = patientID;
+            InsuranceComp = ins;
+            date_of_appo = from;
         }
 
 
