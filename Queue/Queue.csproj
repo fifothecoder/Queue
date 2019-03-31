@@ -139,6 +139,9 @@
     <Compile Include="UControl.xaml.cs">
       <DependentUpon>UControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PatientViewTest.xaml.cs">
+      <DependentUpon>PatientViewTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
     </Compile>

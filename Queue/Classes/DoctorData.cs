@@ -15,8 +15,8 @@ namespace Queue
 
         public DoctorData(string name, string sur)
         {
-            if (!StaticExtensions.ValidateName(_name)) throw new ArgumentException("Invalid name!");
-            if (!StaticExtensions.ValidateSurname(_sur)) throw new ArgumentException("Invalid surname!");
+            if (!StaticExtensions.ValidateName(name)) throw new ArgumentException("Invalid name!");
+            if (!StaticExtensions.ValidateSurname(sur)) throw new ArgumentException("Invalid surname!");
 
             _name = name;
             _sur = sur;

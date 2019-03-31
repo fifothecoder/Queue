@@ -20,6 +20,7 @@ namespace Queue
 
         public static bool ValidateDoctorID(string name)
         {
+            if (name == "root") return true;
             if (name.Length < 8) return false;
 
             string namePart = name.Substring(0, name.Length - 4);
@@ -54,7 +55,7 @@ namespace Queue
             for (int i = 0; i < birthNumber.Length; i++) if (i != 6 && !char.IsNumber(birthNumber[i])) return false;
 
             return true;
-        }
+        } 
 
         public static DoctorData LoadDoctorFromJSON(string json)
         {

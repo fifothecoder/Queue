@@ -32,15 +32,22 @@ namespace Queue
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            string id = DocIDBox.Text;
+            string docID = DocIDBox.Text.Trim();
             string encryptedPass = GetEncryptedPassword();
 
-            if (!StaticExtensions.ValidateDoctorID(id)) StaticExtensions.ShowMessageBox("Invalid Doctor ID! (Usage is 'NameSurnameID')", "Invalid credentials");
+            if (!StaticExtensions.ValidateDoctorID(docID)) StaticExtensions.ShowMessageBox("Invalid Doctor ID! (Usage is 'NameSurnameID')", "Invalid credentials");
+            else if (DocPasswordBox.Password.Trim().Length < 5) StaticExtensions.ShowMessageBox("Invalid credentials!", "Invalid credentials");
             else
             {
-                string response = ValidateCredentials(id, encryptedPass);                                                       //Get credentials
-                if (response == "[]") StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");    //Bad credentials
-                else this.Frame.Navigate(typeof(DoctorView), StaticExtensions.LoadDoctorFromJSON(response));                    //Good credentials
+                string response = ValidateCredentials(docID, encryptedPass);                                                 //Get credentials
+                if (response == "WRONG_ID" || response == "WRONG_PASSWORD") StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");    //Bad credentials
+                else
+                {
+                    Dictionary<string, string> pat = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+                    DoctorData docData = new DoctorData(pat["name"], pat["surname"]);
+
+                    this.Frame.Navigate(typeof(DoctorView), docData); //Good credentials
+                }
             }
 
         }
@@ -53,12 +60,30 @@ namespace Queue
         private string GetEncryptedPassword() 
         {
             //TODO:CREATE SOME ENCRYPTION
-            return DocPasswordBox.Password;
+            return DocPasswordBox.Password.Trim();
         }
 
         private string ValidateCredentials(string docID, string pass)
         {
-            return string.Empty;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/doctor");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                var data = JsonConvert.SerializeObject(new { DoctorID = docID, Password = pass });
+
+                streamWriter.Write(data);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                return result;
+            }
         }
 
     }

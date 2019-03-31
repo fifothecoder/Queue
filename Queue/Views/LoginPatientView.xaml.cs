@@ -37,6 +37,7 @@ namespace Queue
             string encryptedPass = GetEncryptedPassword();
 
             if (!StaticExtensions.ValidateBN(birthNum)) StaticExtensions.ShowMessageBox("Invalid Birth Date! (Usage is 'XXXXXX/XXXX')", "Invalid credentials");
+            else if (PatPassword.Password.Trim().Length < 5) StaticExtensions.ShowMessageBox("Invalid credentials!", "Invalid credentials");
             else
             {
                 string response = ValidateCredentials(birthNum, encryptedPass);                                                 //Get credentials
@@ -46,10 +47,10 @@ namespace Queue
                     Dictionary<string, string> pat = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
                     PatientData patData = new PatientData(pat["name"], pat["surname"], pat["id_number"], pat["insurance_com"].ToInsuranceComp());
 
-                    this.Frame.Navigate(typeof(PatientView), patData);
-            }        //Good credentials
+                    this.Frame.Navigate(typeof(PatientViewTest), patData); //Good credentials
+                }
+            }
         }
-    }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +60,7 @@ namespace Queue
         private string GetEncryptedPassword()
         {
             //TODO:CREATE SOME ENCRYPTION
-            return PatPassword.Password;
+            return PatPassword.Password.Trim();
         }
 
         private string ValidateCredentials(string birthNum, string pass)

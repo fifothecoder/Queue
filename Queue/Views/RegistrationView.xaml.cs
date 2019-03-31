@@ -31,7 +31,7 @@ namespace Queue
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             //Validate info
-
+            
             if (!StaticExtensions.ValidateName(NameBox.Text.Trim()))
             {
                 StaticExtensions.ShowMessageBox("Invalid name! (Length must be above 2 characters)", "Invalid Name");
@@ -43,46 +43,61 @@ namespace Queue
                 StaticExtensions.ShowMessageBox("Invalid birth date! (Must have format 'xxxxxx/xxxx')", "Invalid Birth Date");
             } else if (InsuranceComboBox.SelectedItem == null) {
                 StaticExtensions.ShowMessageBox("You need to choose the insurance company! (Choose none if you are not insured)", "Invalid Insurance Company");
-            }
-            else if (TermsCheck.IsChecked != true)
-            {
+            } else if(Pass.Password.Trim().Length < 5) {
+                StaticExtensions.ShowMessageBox("Too short password!", "Short password");
+            } else if (TermsCheck.IsChecked != true) {
                 StaticExtensions.ShowMessageBox("You need to agree with the Terms of Service!", "Invalid Terms of Service");
             } else
             {
                 //Connect to database
 
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/patient");
-                httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "POST";
+                var result = RegisterToDatabase();
 
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                if(result == "SAVE_OK")
                 {
-                    var ss = InsuranceComboBox.SelectedItem;
-
-                    var data = JsonConvert.SerializeObject(new { name = NameBox.Text.Trim(), surname = SurnameBox.Text.Trim(), id = BirthBox.Text.Trim(),
-                                                                 insurance = InsuranceComboBox.SelectedItem});
-
-                    streamWriter.Write(data);
-                    streamWriter.Flush();
-                    streamWriter.Close();
-                }
-
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                    PatientData data = new PatientData(NameBox.Text.Trim(), SurnameBox.Text.Trim(), BirthBox.Text.Trim(), InsuranceComboBox.SelectedItem.ToString().ToInsuranceComp());
+                    this.Frame.Navigate(typeof(PatientViewTest), data);
+                } else if(result == "SAVE_DUPL")
                 {
-                    var result = streamReader.ReadToEnd();
+                    StaticExtensions.ShowMessageBox("This user is already in the database!", "Duplicate user");
+                } else if(result == "SAVE_ERROR")
+                {
+                    StaticExtensions.ShowMessageBox("Error happened while registring user!", "Registration failed");
                 }
-
-
             }
-
-
-
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private string RegisterToDatabase()
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/patient/register");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                var ss = InsuranceComboBox.SelectedItem;
+
+                var data = JsonConvert.SerializeObject(new
+                {
+                    name = NameBox.Text.Trim(),
+                    surname = SurnameBox.Text.Trim(),
+                    id = BirthBox.Text.Trim(),
+                    insurance = InsuranceComboBox.SelectedItem,
+                    password = Pass.Password
+                });
+
+                streamWriter.Write(data);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream())) return streamReader.ReadToEnd();
         }
     }
 }

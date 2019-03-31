@@ -38,5 +38,20 @@ namespace Queue
 
             _doctorID = e.Parameter.ToString();
         }
+
+        private void DoneButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UrgentButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogOffButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(DoctorView));
+        }
     }
 }
