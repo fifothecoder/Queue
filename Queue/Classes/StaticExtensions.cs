@@ -68,7 +68,7 @@ namespace Queue
             }
         }
 
-        public static void GetAppointments(string docID, ref List<Appointment> appointments)
+        public static void GetDocAppos(string docID, ref List<Appointment> appointments)
         {
             appointments.Clear();
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/doctor/appos");
@@ -94,6 +94,33 @@ namespace Queue
             }
         }
 
+        public static void GetPacAppos(string birthNum, ref List<Appointment> appointments)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/patient/appos");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                var data = JsonConvert.SerializeObject(new { BirthNum = birthNum });
+
+                streamWriter.Write(data);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                string json = streamReader.ReadToEnd();
+                var appos = JsonConvert.DeserializeObject<List<Appointment>>(json);
+                appos = appos.OrderBy(x => x.date_of_appo).ToList();
+                appointments = appos;
+            }
+
+        }
+
+
         public static void DeleteAppointmentFromServer(Appointment appo)
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/doctor/appos/remove");
@@ -117,7 +144,6 @@ namespace Queue
                 if (message == "ERROR") throw new InvalidProgramException();
                 else if(message == "SUCC")
                 {
-                    StaticExtensions.ShowMessageBox("KOk", "Pele");
                 }
             }
 
