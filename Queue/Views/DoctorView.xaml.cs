@@ -49,7 +49,7 @@ namespace Queue
                 docData._appointments.RemoveAt(0);
                 UrgentButton.IsEnabled = true;
             }
-            StaticExtensions.GetAppointments(docData._docID, ref docData._appointments);
+            StaticExtensions.GetDocAppos(docData._docID, ref docData._appointments);
             ClearData();
             UpdateData();
         }

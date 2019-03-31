@@ -23,21 +23,20 @@ namespace Queue
     /// </summary>
     public sealed partial class PatientViewTest : Page
     {
-        private string _birthNum;
-        Appointment appointment;
-        PatientData patdata;
+        List<Appointment> currentAppointments;
+        PatientData patData;
 
         public PatientViewTest()
         {
             this.InitializeComponent();
-            //listView.Items.Add("XXX");
+            
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            //_birthNum = e.Parameter.ToString();
-            patdata = (PatientData) e.Parameter;
+            patData = (PatientData) e.Parameter;
+            currentAppointments = new List<Appointment>();
+            StaticExtensions.GetPacAppos(patData.GetBirthDate(), ref currentAppointments);
         }
 
         private void MainMenuButton_Click(object sender, RoutedEventArgs e)
@@ -56,10 +55,8 @@ namespace Queue
             DateTime date = Convert.ToDateTime(DatePicker.Date);
             date = date.Date.Add(time.TimeOfDay);
             string doctor = Convert.ToString(DoctorCombo.SelectedItem);
-            string name = patdata.GetPatientName();
-            string insurancecomp = patdata.GetInsuranceCompany();
-
-            
+            string name = patData.GetPatientName();
+            string insurancecomp = patData.GetInsuranceCompany();
         }
     }
 }

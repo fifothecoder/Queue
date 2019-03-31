@@ -42,6 +42,11 @@ namespace Queue
             return $"{name} {surname}";
         }
 
+        public string GetBirthDate()
+        {
+            return id_number;
+        }
+
         public string GetInsuranceCompany()
         {
             return insurance_com.ToString();

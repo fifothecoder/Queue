@@ -46,7 +46,7 @@ namespace Queue
                     Dictionary<string, string> pat = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
 
                     List<Appointment> appos = new List<Appointment>();
-                    StaticExtensions.GetAppointments(docID, ref appos);
+                    StaticExtensions.GetDocAppos(docID, ref appos);
 
                     DoctorData docData = new DoctorData(pat["name"], pat["surname"], docID, ref appos);
 
