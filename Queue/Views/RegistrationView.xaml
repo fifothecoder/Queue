@@ -68,7 +68,14 @@
                 </ComboBox>
             </Grid>
             <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
-                <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Service"/>
+                <CheckBox x:Name="TermsCheck">
+                    <CheckBox.Content>
+                        <TextBlock>
+      I agree with <Hyperlink NavigateUri="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">the Terms of Service.
+            </Hyperlink>
+                        </TextBlock>
+                    </CheckBox.Content>
+                </CheckBox>
             </Grid>
 
         </Grid>
