@@ -44,7 +44,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
-                    
+                    <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="View Appointment" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
                 
@@ -53,7 +53,20 @@
 
                 
                 <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="100" x:Name="TBDoctor" VerticalAlignment="Center"/>
-                
+                <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="DateBlock" Text="Date" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="TimeBlock" Text="Time" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="DateSet" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TimeSet" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
             </Grid>
             <Rectangle Height="1" Grid.Row="1" VerticalAlignment="Top" Width="500" Fill="Black" Margin="0,10,0,0" />
             <Button x:Name="MainMenuButton" Content="Main Menu" HorizontalAlignment="Left" Margin="404,10,0,0" VerticalAlignment="Top" Grid.Row="1" Click="MainMenuButton_Click"/>
