@@ -34,6 +34,8 @@ namespace Queue
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            DatePicker.MinDate = DateTime.Today;
             patData = (PatientData) e.Parameter;
             currentAppointments = new List<Appointment>();
             StaticExtensions.GetPacAppos(patData.id_number, ref currentAppointments);       //Get Appos
