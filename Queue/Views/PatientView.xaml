@@ -7,15 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Height="600" Width="1024"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Viewbox>
-    <Grid Padding="0,0,0,50">
+        <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="1028">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
                 <RowDefinition Height="300"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" VerticalAlignment ="Center" HorizontalAlignment="Center" Height="auto" x:Name="Chart">
+
+            <Grid Grid.Row="0" VerticalAlignment ="Center" HorizontalAlignment="Center"  x:Name="Chart">
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="150"/>
@@ -68,7 +70,9 @@
                 <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Width="100" x:Name="TBDoctor" VerticalAlignment="Center"/>
                 <ComboBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="100" x:Name="TBTime" VerticalAlignment="Center"/>
             </Grid>
-            <Rectangle Height="1" Grid.Row="1" VerticalAlignment="Top" Width="50000" HorizontalAlignment="Stretch" Fill="Black" Margin="0,20,0,0" />
+
+            <Rectangle Height="1" Grid.Row="1" VerticalAlignment="Top" Width="500" HorizontalAlignment="Stretch" Fill="Black" Margin="0,20,0,0" />
+
 
         </Grid>
     </Viewbox>
