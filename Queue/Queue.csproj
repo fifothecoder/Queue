@@ -121,13 +121,14 @@
     </Compile>
     <Compile Include="Classes\Appointment.cs" />
     <Compile Include="Classes\DoctorData.cs" />
+    <Compile Include="Classes\LoginData.cs" />
     <Compile Include="Views\LoginPatientView.xaml.cs">
       <DependentUpon>LoginPatientView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginDoctorView.xaml.cs">
       <DependentUpon>LoginDoctorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PatientData.cs" />
+    <Compile Include="Classes\PatientData.cs" />
     <Compile Include="Classes\StaticExtensions.cs" />
     <Compile Include="Views\DoctorView.xaml.cs">
       <DependentUpon>DoctorView.xaml</DependentUpon>
@@ -199,6 +200,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

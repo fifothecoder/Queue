@@ -23,7 +23,7 @@ namespace Queue
     public sealed partial class PatientView : Page
     {
 
-        private string _birthNum;
+        private PatientData _patData;
 
         public PatientView()
         {
@@ -34,8 +34,7 @@ namespace Queue
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            _birthNum = e.Parameter.ToString();
+            _patData = (PatientData) e.Parameter;
         }
     }
 }

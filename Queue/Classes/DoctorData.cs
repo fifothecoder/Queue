@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Queue.Classes
+namespace Queue
 {
     public class DoctorData
     {
@@ -13,10 +13,13 @@ namespace Queue.Classes
         private string _sur;
 
 
-        public DoctorData()
+        public DoctorData(string name, string sur)
         {
             if (!StaticExtensions.ValidateName(_name)) throw new ArgumentException("Invalid name!");
             if (!StaticExtensions.ValidateSurname(_sur)) throw new ArgumentException("Invalid surname!");
+
+            _name = name;
+            _sur = sur;
         }
 
         public string GetName()

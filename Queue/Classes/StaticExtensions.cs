@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Newtonsoft.Json;
 
 
 namespace Queue
@@ -55,8 +56,23 @@ namespace Queue
             return true;
         }
 
-        
+        public static DoctorData LoadDoctorFromJSON(string json)
+        {
+            string docName = "Sona1234";
+            string docSurname = "aaaaaaaaa";
 
+            return new DoctorData(docName, docSurname);
+        }
 
+        public static InsuranceComp ToInsuranceComp(this string s)
+        {
+            switch (s.ToUpper())
+            {
+                case "DOVERA": return InsuranceComp.Dovera;
+                case "VSZP": return InsuranceComp.VSZP;
+                case "UNION": return InsuranceComp.Union;
+                default: return InsuranceComp.None;
+            }
+        }
     }
 }

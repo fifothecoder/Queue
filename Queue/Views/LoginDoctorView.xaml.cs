@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Security;
+using System.Net;
+using System.Text;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -12,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,10 +36,11 @@ namespace Queue
             string encryptedPass = GetEncryptedPassword();
 
             if (!StaticExtensions.ValidateDoctorID(id)) StaticExtensions.ShowMessageBox("Invalid Doctor ID! (Usage is 'NameSurnameID')", "Invalid credentials");
-            else if(!ValidateCredentials(id, encryptedPass)) StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");
-            else {
-                //If login is successful
-                this.Frame.Navigate(typeof(DoctorView), id);
+            else
+            {
+                string response = ValidateCredentials(id, encryptedPass);                                                       //Get credentials
+                if (response == "[]") StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");    //Bad credentials
+                else this.Frame.Navigate(typeof(DoctorView), StaticExtensions.LoadDoctorFromJSON(response));                    //Good credentials
             }
 
 
@@ -53,10 +57,19 @@ namespace Queue
             return DocPassword.Password;
         }
 
-        private bool ValidateCredentials(string id, string pass)
+        private string ValidateCredentials(string docID, string pass)
         {
-            return true;
+            var request = (HttpWebRequest)WebRequest.Create("https://10.7.255.210/DoctorQueue/doctorapp/public/doctor/");
+            var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(new DoctorLoginData { DoctorID = docID, Password = pass }));
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream()) stream.Write(data, 0, data.Length);
+            var response = (HttpWebResponse)request.GetResponse();
+            return new StreamReader(response.GetResponseStream()).ReadToEnd();
         }
-       
+
     }
 }
