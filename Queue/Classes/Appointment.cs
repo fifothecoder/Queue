@@ -13,13 +13,14 @@ namespace Queue
         public string surname;
         public string patient_id;
         public InsuranceComp InsuranceComp;
+        public string doctor_id;
 
-
-        public Appointment(string patientName, string patientSurname, string patientID, InsuranceComp ins, DateTime from)
+        public Appointment(string patientName, string patientSurname, string patientID, string doctorID, InsuranceComp ins, DateTime from)
         {
             name = patientName;
             surname = patientSurname;
             patient_id = patientID;
+            doctor_id = doctorID;
             InsuranceComp = ins;
             date_of_appo = from;
         }

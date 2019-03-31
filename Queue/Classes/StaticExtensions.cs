@@ -120,6 +120,33 @@ namespace Queue
 
         }
 
+        public static void AddAppointmentToServer(Appointment appo)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/patient/appos/add");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                var data = JsonConvert.SerializeObject(new { appo.name, appo.surname, appo.patient_id, appo.doctor_id, appo.date_of_appo, appo.InsuranceComp});
+
+                streamWriter.Write(data);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+
+                string message = streamReader.ReadToEnd();
+                if (message == "ERROR") throw new InvalidProgramException();
+                else if (message == "SUCC")
+                {
+                    ShowMessageBox("Appointment Successfully Added!", "Success");
+                }
+            }
+        }
 
         public static void DeleteAppointmentFromServer(Appointment appo)
         {
@@ -146,7 +173,25 @@ namespace Queue
                 {
                 }
             }
+        }
 
+        public static List<DateTime> GetValidTimes(DateTime startDay)
+        {
+            return new DateTime[]
+            {
+                startDay + new TimeSpan(7, 30, 0),
+                startDay + new TimeSpan(8, 0, 0),
+                startDay + new TimeSpan(8, 30, 0),
+                startDay + new TimeSpan(9, 0, 0),
+                startDay + new TimeSpan(9, 30, 0),
+                startDay + new TimeSpan(10, 0, 0),
+                startDay + new TimeSpan(10, 30, 0),
+                startDay + new TimeSpan(11, 0, 0),
+                startDay + new TimeSpan(11, 30, 0),
+                startDay + new TimeSpan(12, 0, 0),
+                startDay + new TimeSpan(12, 30, 0),
+                startDay + new TimeSpan(13, 0, 0)
+            }.ToList();
         }
     }
 }

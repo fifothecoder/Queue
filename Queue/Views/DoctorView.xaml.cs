@@ -26,7 +26,6 @@ namespace Queue
     {
 
         private DoctorData docData;
-        private bool wasUrgent = false;
 
         public DoctorView()
         {
@@ -56,8 +55,7 @@ namespace Queue
 
         private void UrgentButton_Click(object sender, RoutedEventArgs e)
         {
-            docData._appointments.Insert(0, new Appointment("URGENT", "CASE", "Unknown", InsuranceComp.None, DateTime.Now));
-            wasUrgent = true;
+            docData._appointments.Insert(0, new Appointment("URGENT", "CASE", "Unknown", docData._docID, InsuranceComp.None, DateTime.Now));
             UrgentButton.IsEnabled = false;
             ClearData();
             UpdateData();

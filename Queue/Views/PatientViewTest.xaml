@@ -31,10 +31,10 @@
                 <TextBlock x:Name="Time" Grid.Column="0" Grid.Row="3" Text="Time" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,5,0"/>
                 <TextBlock x:Name="Assign" Grid.Column="0" Grid.Row="4" Text="Assign" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,5,0"/>
 
-                <CalendarDatePicker Grid.Column="1" Grid.Row="1" x:Name="DatePicker" HorizontalAlignment="Center" Width="100" PlaceholderText=" " IsTodayHighlighted="True" Margin="0,0,0,5"/>
-                <ComboBox Grid.Column="1" Grid.Row="2" x:Name="DoctorCombo" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center" Margin="0,0,0,5"/>
-                <ComboBox Grid.Column="1" Grid.Row="3" x:Name="TimeCombo" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center" Margin="0,0,0,5"/>
-                <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Width="99" Content="Assign" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,4" Click="Button_Click"/>
+                <CalendarDatePicker Grid.Column="1" Grid.Row="1" x:Name="DatePicker" HorizontalAlignment="Center" Width="100" PlaceholderText=" " IsTodayHighlighted="True" Margin="0,0,0,5" DateChanged="DatePicker_DateChanged"/>
+                <ComboBox Grid.Column="1" Grid.Row="2" x:Name="DoctorCombo" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center" Margin="0,0,0,5" SelectionChanged="DoctorCombo_SelectionChanged"/>
+                <ComboBox Grid.Column="1" Grid.Row="3" x:Name="TimeCombo" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center" Margin="0,0,0,5" SelectionChanged="TimeCombo_SelectionChanged"/>
+                <Button x:Name="AssignButton"  Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Width="99" Content="Assign" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,4" Click="Button_Click"/>
             </Grid>
             <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,25,0,0">
                 <Grid.ColumnDefinitions>
@@ -46,13 +46,13 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="View Appointment" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
+                <TextBlock Text="Next Appointment" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
                 
                 <TextBlock  Grid.Column="0" Grid.Row="1" Text="Doctor" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,5,0"/>
                 
 
                 
-                <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="100" x:Name="TBDoctor" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Width="100" x:Name="TBDoctor" VerticalAlignment="Center" SelectionChanged="TBDoctor_SelectionChanged"/>
                 <Grid Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>

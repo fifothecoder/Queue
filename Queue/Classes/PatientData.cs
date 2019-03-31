@@ -19,10 +19,10 @@ namespace Queue
     public class PatientData
     {
 
-        private readonly string name;
-        private readonly string surname;
-        private readonly string id_number;      // Format : AAAAAA/BBBB
-        private readonly InsuranceComp insurance_com;
+        public readonly string name;
+        public readonly string surname;
+        public readonly string id_number;      // Format : AAAAAA/BBBB
+        public readonly InsuranceComp insurance_com;
 
         public PatientData(string nam, string sur, string birthNum, InsuranceComp ins)
         {
@@ -35,16 +35,6 @@ namespace Queue
             if (!StaticExtensions.ValidateName(name)) throw new ArgumentException("Invalid name!");
             if (!StaticExtensions.ValidateSurname(surname)) throw new ArgumentException("Invalid surname!");
             if (!StaticExtensions.ValidateBN(id_number)) throw new ArgumentException("Invalid birth number!");
-        }
-
-        public string GetPatientName()
-        {
-            return $"{name} {surname}";
-        }
-
-        public string GetBirthDate()
-        {
-            return id_number;
         }
 
         public string GetInsuranceCompany()

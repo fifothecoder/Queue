@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Collections;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
@@ -36,7 +36,36 @@ namespace Queue
             base.OnNavigatedTo(e);
             patData = (PatientData) e.Parameter;
             currentAppointments = new List<Appointment>();
-            StaticExtensions.GetPacAppos(patData.GetBirthDate(), ref currentAppointments);
+            StaticExtensions.GetPacAppos(patData.id_number, ref currentAppointments);       //Get Appos
+
+
+            DoctorCombo.Items.Clear();
+
+            foreach (var appo in currentAppointments)
+            {
+                if (!TBDoctor.Items.Contains(appo.doctor_id)) TBDoctor.Items.Add(appo.doctor_id);
+                if (!DoctorCombo.Items.Contains(appo.doctor_id)) DoctorCombo.Items.Add(appo.doctor_id);        
+            }
+
+            DoctorCombo.IsEnabled = false;
+            TimeCombo.IsEnabled = false;
+
+        }
+
+        private void DoctorCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime time = Convert.ToDateTime(TimeCombo.SelectedItem);
+            DateTime date = DatePicker.Date.Value.DateTime;
+            date = date.Date.Add(time.TimeOfDay);
+            string doctor = Convert.ToString(DoctorCombo.SelectedItem);
+
+            List<Appointment> docAppos = new List<Appointment>();
+            StaticExtensions.GetDocAppos(doctor, ref docAppos);
+
+            List<DateTime> free = StaticExtensions.GetValidTimes(date);
+            foreach (var appo in docAppos) if (free.Contains(appo.date_of_appo)) free.Remove(appo.date_of_appo);
+            foreach (var freeAppo in free) TimeCombo.Items.Add(freeAppo);
+            TimeCombo.IsEnabled = true;
         }
 
         private void MainMenuButton_Click(object sender, RoutedEventArgs e)
@@ -51,12 +80,35 @@ namespace Queue
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DateTime time = Convert.ToDateTime(TimeCombo.SelectedItem);
-            DateTime date = Convert.ToDateTime(DatePicker.Date);
-            date = date.Date.Add(time.TimeOfDay);
-            string doctor = Convert.ToString(DoctorCombo.SelectedItem);
-            string name = patData.GetPatientName();
-            string insurancecomp = patData.GetInsuranceCompany();
+            Appointment newAppo = new Appointment(patData.name, patData.surname, patData.id_number, DoctorCombo.SelectedItem.ToString(), 
+                patData.insurance_com, Convert.ToDateTime(TimeCombo.SelectedItem));
+            StaticExtensions.AddAppointmentToServer(newAppo);
+            AssignButton.IsEnabled = false;
+            StaticExtensions.GetPacAppos(patData.id_number, ref currentAppointments);
+        }
+
+        private void TBDoctor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Appointment currentAppo = null;
+
+            foreach (var appo in currentAppointments)
+                if (appo.doctor_id == TBDoctor.SelectedItem.ToString() && (currentAppo == null || DateTime.Compare(currentAppo.date_of_appo, appo.date_of_appo) > 0)) currentAppo = appo;
+
+            if (currentAppo == null) return;
+            DateSet.Text = currentAppo.date_of_appo.Date.ToShortDateString();
+            TimeSet.Text = currentAppo.date_of_appo.TimeOfDay.ToString();
+            AssignButton.IsEnabled = true;
+        }
+
+        private void DatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            DoctorCombo.IsEnabled = true;
+            AssignButton.IsEnabled = true;
+        }
+
+        private void TimeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AssignButton.IsEnabled = true;
         }
     }
 }
