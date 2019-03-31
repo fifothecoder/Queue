@@ -71,7 +71,7 @@
                 <CheckBox x:Name="TermsCheck">
                     <CheckBox.Content>
                         <TextBlock>
-      I agree with <Hyperlink NavigateUri="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">the Terms of Service.
+      I agree with the <Hyperlink NavigateUri="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">Terms of Service.
             </Hyperlink>
                         </TextBlock>
                     </CheckBox.Content>

@@ -46,7 +46,7 @@ namespace Queue
                     Dictionary<string, string> pat = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
                     PatientData patData = new PatientData(pat["name"], pat["surname"], pat["id_number"], pat["insurance_com"].ToInsuranceComp());
 
-                    this.Frame.Navigate(typeof(PatientView), patData);
+                    this.Frame.Navigate(typeof(PatientViewTest), patData);
             }        //Good credentials
         }
     }
