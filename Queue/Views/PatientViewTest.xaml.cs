@@ -44,9 +44,12 @@ namespace Queue
             foreach (var appo in currentAppointments)
             {
                 if (!TBDoctor.Items.Contains(appo.doctor_id)) TBDoctor.Items.Add(appo.doctor_id);
-                if (!DoctorCombo.Items.Contains(appo.doctor_id)) DoctorCombo.Items.Add(appo.doctor_id);        
+                //if (!DoctorCombo.Items.Contains(appo.doctor_id)) DoctorCombo.Items.Add(appo.doctor_id);        
             }
-
+            foreach (var item in StaticExtensions.GetDoctors())
+            {
+                DoctorCombo.Items.Add(item);
+            }
             DoctorCombo.IsEnabled = false;
             TimeCombo.IsEnabled = false;
 
@@ -80,6 +83,8 @@ namespace Queue
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (DoctorCombo.SelectedItem == null || TimeCombo.SelectedItem == null || DatePicker.Date == null) return;
+
             Appointment newAppo = new Appointment(patData.name, patData.surname, patData.id_number, DoctorCombo.SelectedItem.ToString(), 
                 patData.insurance_com, Convert.ToDateTime(TimeCombo.SelectedItem));
             StaticExtensions.AddAppointmentToServer(newAppo);

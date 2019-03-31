@@ -120,6 +120,30 @@ namespace Queue
 
         }
 
+        public static List<string> GetDoctors()
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/doctors");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                var data = JsonConvert.SerializeObject(new { });
+
+                streamWriter.Write(data);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                string json = streamReader.ReadToEnd();
+                var appos = JsonConvert.DeserializeObject<List<string>>(json);
+                return appos;
+            }
+        }
+
         public static void AddAppointmentToServer(Appointment appo)
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://10.7.255.210/DoctorQueue/doctorapp/public/patient/appos/add");
