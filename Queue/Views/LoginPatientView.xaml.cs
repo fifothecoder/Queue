@@ -33,17 +33,23 @@ namespace Queue
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
             string birthNum = PatBirthNoBox.Text;
             string encryptedPass = GetEncryptedPassword();
 
             if (!StaticExtensions.ValidateBN(birthNum)) StaticExtensions.ShowMessageBox("Invalid Birth Date! (Usage is 'XXXXXX/XXXX')", "Invalid credentials");
             else
             {
-                //If login is successful
-                this.Frame.Navigate(typeof(PatientView), birthNum);
-            }
+                string response = ValidateCredentials(birthNum, encryptedPass);                                                 //Get credentials
+                if (response == "WRONG_ID" || response == "WRONG_PASSWORD") StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");    //Bad credentials
+                else
+                {
+                    Dictionary<string, string> pat = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+                    PatientData patData = new PatientData(pat["name"], pat["surname"], pat["id_number"], pat["insurance_com"].ToInsuranceComp());
+
+                    this.Frame.Navigate(typeof(PatientView), patData);
+            }        //Good credentials
         }
+    }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {

@@ -58,16 +58,7 @@ namespace Queue
 
         private string ValidateCredentials(string docID, string pass)
         {
-            var request = (HttpWebRequest)WebRequest.Create("https://10.7.255.210/DoctorQueue/doctorapp/public/doctor/");
-            var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(new DoctorLoginData { DoctorID = docID, Password = pass }));
-
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = data.Length;
-
-            using (var stream = request.GetRequestStream()) stream.Write(data, 0, data.Length);
-            var response = (HttpWebResponse)request.GetResponse();
-            return new StreamReader(response.GetResponseStream()).ReadToEnd();
+            return string.Empty;
         }
 
     }
