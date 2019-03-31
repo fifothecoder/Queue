@@ -22,6 +22,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
@@ -50,9 +51,15 @@
                 <TextBox x:Name="BirthBox"/>
             </Grid>
             <Grid Grid.Row="4" Grid.Column="0" Margin="0,0,0,15">
-                <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
+                <TextBlock x:Name="PasswordBlock" Text="Password:"/>
             </Grid>
             <Grid Grid.Row="4" Grid.Column="1" Margin="0,0,0,15">
+                <PasswordBox x:Name="Pass"/>
+            </Grid>
+                <Grid Grid.Row="5" Grid.Column="0" Margin="0,0,0,15">
+                <TextBlock x:Name="InsuranceBlock" Text="Insurance Company:"/>
+            </Grid>
+            <Grid Grid.Row="5" Grid.Column="1" Margin="0,0,0,15">
                 <ComboBox x:Name="InsuranceComboBox" PlaceholderText="Choose Your Insurance Company" Width="270" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center">
                     <x:String>VŠZP</x:String>
                     <x:String>Union</x:String>
@@ -60,7 +67,7 @@
                     <x:String>None</x:String>
                 </ComboBox>
             </Grid>
-            <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
                 <CheckBox x:Name="TermsCheck" Content="I agree with the Terms of Service"/>
             </Grid>
 
