@@ -24,6 +24,8 @@ namespace Queue
     public sealed partial class PatientViewTest : Page
     {
         private string _birthNum;
+        Appointment appointment;
+        PatientData patdata;
 
         public PatientViewTest()
         {
@@ -34,7 +36,8 @@ namespace Queue
         {
             base.OnNavigatedTo(e);
 
-            _birthNum = e.Parameter.ToString();
+            //_birthNum = e.Parameter.ToString();
+            patdata = (PatientData) e.Parameter;
         }
 
         private void MainMenuButton_Click(object sender, RoutedEventArgs e)
@@ -46,7 +49,17 @@ namespace Queue
         {
             this.Frame.Navigate(typeof(LoginPatientView));
         }
-        
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime time = Convert.ToDateTime(TimeCombo.SelectedItem);
+            DateTime date = Convert.ToDateTime(DatePicker.Date);
+            date = date.Date.Add(time.TimeOfDay);
+            string doctor = Convert.ToString(DoctorCombo.SelectedItem);
+            string name = patdata.GetPatientName();
+            string insurancecomp = patdata.GetInsuranceCompany();
+
+            
+        }
     }
 }

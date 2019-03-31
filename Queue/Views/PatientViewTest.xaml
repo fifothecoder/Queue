@@ -34,7 +34,7 @@
                 <CalendarDatePicker Grid.Column="1" Grid.Row="1" x:Name="DatePicker" HorizontalAlignment="Center" Width="100" PlaceholderText=" " IsTodayHighlighted="True" Margin="0,0,0,5"/>
                 <ComboBox Grid.Column="1" Grid.Row="2" x:Name="DoctorCombo" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center" Margin="0,0,0,5"/>
                 <ComboBox Grid.Column="1" Grid.Row="3" x:Name="TimeCombo" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center" Margin="0,0,0,5"/>
-                <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Width="99" Content="Assign" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Width="99" Content="Assign" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,4" Click="Button_Click"/>
             </Grid>
             <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,25,0,0">
                 <Grid.ColumnDefinitions>
