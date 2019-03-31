@@ -40,14 +40,8 @@ namespace Queue
             if (!StaticExtensions.ValidateBN(birthNum)) StaticExtensions.ShowMessageBox("Invalid Birth Date! (Usage is 'XXXXXX/XXXX')", "Invalid credentials");
             else
             {
-                string response = ValidateCredentials(birthNum, encryptedPass);                                                 //Get credentials
-                if (response == "WRONG_ID") StaticExtensions.ShowMessageBox("Wrong username or password!", "Invalid credentials");    //Bad credentials
-                else {
-                    Dictionary<string, string> pat = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
-                    PatientData patData = new PatientData(pat["name"], pat["surname"], pat["id_number"], pat["insurance_com"].ToInsuranceComp());
-
-                    this.Frame.Navigate(typeof(PatientView), patData);
-                }        //Good credentials
+                //If login is successful
+                this.Frame.Navigate(typeof(PatientView), birthNum);
             }
         }
 
