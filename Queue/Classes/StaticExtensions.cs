@@ -90,10 +90,7 @@ namespace Queue
                 string json = streamReader.ReadToEnd();
                 var appos = JsonConvert.DeserializeObject<List<Appointment>>(json);
                 appos = appos.OrderBy(x => x.date_of_appo).ToList();
-                foreach (var item in appos)
-                {
-                    if (!appointments.Contains(item)) appointments.Add(item);
-                }
+                appointments = appos;
             }
         }
 
@@ -105,7 +102,7 @@ namespace Queue
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                var data = JsonConvert.SerializeObject(new { appo.patient_id, appo.date_of_appo});
+                var data = JsonConvert.SerializeObject(new {appo.date_of_appo});
 
                 streamWriter.Write(data);
                 streamWriter.Flush();
@@ -115,7 +112,13 @@ namespace Queue
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
-                if (streamReader.ReadToEnd() == "ERROR") throw new InvalidProgramException();
+
+                string message = streamReader.ReadToEnd();
+                if (message == "ERROR") throw new InvalidProgramException();
+                else if(message == "SUCC")
+                {
+                    StaticExtensions.ShowMessageBox("KOk", "Pele");
+                }
             }
 
         }

@@ -26,6 +26,7 @@ namespace Queue
     {
 
         private DoctorData docData;
+        private bool wasUrgent = false;
 
         public DoctorView()
         {
@@ -43,7 +44,11 @@ namespace Queue
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
             if (docData._appointments.Count != 0 && docData._appointments[0].name != "URGENT") StaticExtensions.DeleteAppointmentFromServer(docData._appointments[0]);
-            else if (docData._appointments[0].name == "URGENT") docData._appointments.RemoveAt(0);
+            else if (docData._appointments[0].name == "URGENT")
+            {
+                docData._appointments.RemoveAt(0);
+                UrgentButton.IsEnabled = true;
+            }
             StaticExtensions.GetAppointments(docData._docID, ref docData._appointments);
             ClearData();
             UpdateData();
@@ -52,6 +57,8 @@ namespace Queue
         private void UrgentButton_Click(object sender, RoutedEventArgs e)
         {
             docData._appointments.Insert(0, new Appointment("URGENT", "CASE", "Unknown", InsuranceComp.None, DateTime.Now));
+            wasUrgent = true;
+            UrgentButton.IsEnabled = false;
             ClearData();
             UpdateData();
         }
